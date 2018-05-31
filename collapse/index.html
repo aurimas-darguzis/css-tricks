@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Collapse Effect  </title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 10px;
+      background: steelblue;
+      color: white;
+    }
+
+    div[data-js="content"] {
+      transition: max-height 0.5s;
+      overflow: hidden;
+      max-height: 0;
+    }
+
+    .hover-me:hover > div[data-js="content"] {
+      max-height: var(--max-height);
+    }
+  </style>
+</head>
+<body>
+  <div class="hover-me">
+    Hover me to see a height transition
+    <div data-js="content">
+        "Keep this man safe,
+        Give him all kindness. I had rather have 
+        Such men my friends than enemies." William Shakespeare
+    </div>
+  </div>
+</body>
+<script>
+  const el = document.querySelector('div[data-js="content"]');
+  const height = el.scrollHeight;
+  el.style.setProperty('--max-height', height +  'px');
+</script>
+</html>
